@@ -64,7 +64,7 @@ class App extends Component {
     //   return recipe.name.toLowerCase().includes(searchField)
     // })
 
-    console.log(this.state.materials);
+    console.log(...this.state.materials);
 
     return (
       <div className="App">
