@@ -23,6 +23,11 @@ class App extends Component {
       .then((name, requirements) => this.setState(() => {
         return { recipes: name, requirements }
       }))
+    fetch(`${process.env.PUBLIC_URL}/data/materials.json`)
+      .then(response => response.json())
+      .then((name, amount, weight) => this.setState(() => {
+        return { materials: name, amount, weight }
+      }))
   }
 
   onSearchChange = (event) => {
@@ -32,14 +37,34 @@ class App extends Component {
     })
   }
 
+  onMaterialChange = (event, materialName) => {
+    const inputField = event.target.value
+    const updatedMaterials = this.state.materials.map(material => {
+      if (material.name === materialName && !isNaN(inputField)) {
+        return { ...material, amount: parseInt(inputField, 10) }
+      } else {
+        return material;
+      }
+    })
+    this.setState({ materials: updatedMaterials })
+  }
+
+
   render() {
 
-    const { recipes, searchField, } = this.state
+    const { recipes, searchField, inputField } = this.state
     const { onSearchChange } = this;
+    const { onMaterialChange } = this;
 
-    const filteredRecipes = recipes.filter((recipe) => {
+    const searchRecipes = recipes.filter((recipe) => {
       return recipe.name.toLowerCase().includes(searchField)
     })
+
+    // const materialsAmount = recipes.filter((recipe) => {
+    //   return recipe.name.toLowerCase().includes(searchField)
+    // })
+
+    console.log(this.state.materials);
 
     return (
       <div className="App">
@@ -49,19 +74,24 @@ class App extends Component {
             <h2>Materials</h2>
             <InputBox
               className='Aluminium-input-box'
-              placeholder={'Aluminium Amount'} />
+              placeholder={'Aluminium Amount'}
+              onChangeHandler={(event) => onMaterialChange(event, 'Aluminium')} />
             <InputBox
               className='MetalScrap-input-box'
-              placeholder='Metal Scrap Amount' />
+              placeholder='Metal Scrap Amount'
+              onChangeHandler={(event) => onMaterialChange(event, 'Metal Scrap')} />
             <InputBox
               className='Plastic-input-box'
-              placeholder='Plastic Amount' />
+              placeholder='Plastic Amount'
+              onChangeHandler={(event) => onMaterialChange(event, 'Plastic')} />
             <InputBox
               className='Rubber-input-box'
-              placeholder='Rubber Amount' />
+              placeholder='Rubber Amount'
+              onChangeHandler={(event) => onMaterialChange(event, 'Rubber')} />
             <InputBox
               className='Steel-input-box'
-              placeholder='Steel Amount' />
+              placeholder='Steel Amount'
+              onChangeHandler={(event) => onMaterialChange(event, 'Steel')} />
             <h2>Search Recipes</h2>
             <SearchBox
               className='recipe-search-box'
@@ -69,7 +99,7 @@ class App extends Component {
               onChangeHandler={onSearchChange}
             />
             <RecipeList
-              recipes={filteredRecipes}
+              recipes={searchRecipes}
             />
           </header>
         </div>

@@ -8,7 +8,7 @@ class InputBox extends Component {
             className={this.props.className}
             type='number'
             placeholder={this.props.placeholder}
-            >
+            onChange={this.props.onChangeHandler}>
             </input>
         )
     }
