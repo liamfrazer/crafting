@@ -1,0 +1,32 @@
+[
+    {
+      "id": 1,
+      "name": "Assualt Rifle Clip",
+      "maingroup": "Attachment",
+      "subgroup": "Assault Rifle Attachment",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Aluminium": 250,
+        "Metal Scrap": 250,
+        "Plastic": 65,
+        "Rubber": 65,
+        "Steel": 250
+      }
+    },
+    {
+      "id": 2,
+      "name": "Assualt Rifle EXT Clip",
+      "maingroup": "Attachment",
+      "subgroup": "Assualt Rifle Attachment",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Aluminium": 250,
+        "Metal Scrap": 250,
+        "Plastic": 65,
+        "Rubber": 65,
+        "Steel": 250
+      }
+    }
+  ]
