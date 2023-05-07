@@ -1,0 +1,37 @@
+[
+    {
+      "id": 1,
+      "name": "Aluminium",
+      "weight": 0,
+      "image": "",
+      "amount": 0
+    },
+    {
+      "id": 2,
+      "name": "Metal Scrap",
+      "weight": 0,
+      "image": "",
+      "amount": 0
+    },
+    {
+      "id": 3,
+      "name": "Plastic",
+      "weight": 0,
+      "image": "",
+      "amount": 0
+    },
+    {
+      "id": 4,
+      "name": "Rubber",
+      "weight": 0,
+      "image": "",
+      "amount": 0
+    },
+    {
+      "id": 5,
+      "name": "Steel",
+      "weight": 0,
+      "image": "",
+      "amount": 0
+    }
+  ]
