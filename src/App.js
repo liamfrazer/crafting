@@ -1,10 +1,11 @@
 import { Component } from 'react'
-import InputBox from './components/input-box/input-box.component';
 import RecipeList from './components/recipe-list/recipe-list.component';
 import SearchBox from './components/search-box/search-box.component';
 import ShoppingList from './shopping-list/shopping-list.component';
 import BtnOption from './components/btn/btn-option.component';
 import './App.css';
+
+// import InputBox from './components/input-box/input-box.component';
 
 class App extends Component {
   constructor() {
@@ -19,6 +20,9 @@ class App extends Component {
     }
   }
 
+  // API Requests to Recipes data and Materials data stored within public/data
+  // This will be swapped out with a database for full CRUD integration
+
   componentDidMount() {
     fetch(`${process.env.PUBLIC_URL}/data/recipes.json`)
       .then(response => response.json())
@@ -32,6 +36,8 @@ class App extends Component {
       }))
   }
 
+  // onSearchChange detects user input into the search box, changing the list of recipes displayed
+
   onSearchChange = (event) => {
     const searchField = event.target.value.toLowerCase()
     this.setState(() => {
@@ -39,17 +45,24 @@ class App extends Component {
     })
   }
 
-  onMaterialChange = (event, materialName) => {
-    const inputField = event.target.value
-    const updatedMaterials = this.state.materials.map(material => {
-      if (material.name === materialName && !isNaN(inputField)) {
-        return { ...material, amount: parseInt(inputField, 10) }
-      } else {
-        return material;
-      }
-    })
-    this.setState({ materials: updatedMaterials })
-  }
+  // Original idea to input materials, then calculate what recipes can be created
+  // Will keep for future changes, as calculation still may be required
+
+  // onMaterialChange = (event, materialName) => {
+  //   const inputField = event.target.value
+  //   const updatedMaterials = this.state.materials.map(material => {
+  //     if (material.name === materialName && !isNaN(inputField)) {
+  //       return { ...material, amount: parseInt(inputField, 10) }
+  //     } else {
+  //       return material;
+  //     }
+  //   })
+  //   this.setState({ materials: updatedMaterials })
+  // }
+
+  // Duplicate of onMaterialChange, but will detect buttons being selected in recipes
+  // This will then add the items to the shopping list
+  // Once added to the shopping list, the required material amount will be displayed
 
   onBasketChange = (event, materialName) => {
     const inputField = event.target.value
@@ -67,7 +80,9 @@ class App extends Component {
   render() {
 
     const { recipes, searchField } = this.state
-    const { onSearchChange, onMaterialChange, onBasketChange } = this;
+    const { onSearchChange } = this;
+    // onMaterialChange
+    // onBasketChange
 
     const searchRecipes = recipes.filter((recipe) => {
       return recipe.name.toLowerCase().includes(searchField)
@@ -85,8 +100,8 @@ class App extends Component {
               value='Clear Basket'
               onClickHandler={() => console.log('Basket Cleared')}
             />
-            <h2>Materials</h2>
-            <InputBox
+            {/*<h2>Materials</h2>
+             <InputBox
               className='Aluminium-input-box'
               placeholder={'Aluminium'}
               onChangeHandler={(event) => onMaterialChange(event, 'Aluminium')} />
@@ -109,7 +124,7 @@ class App extends Component {
             <InputBox
               className='Glass-input-box'
               placeholder='Glass'
-              onChangeHandler={(event) => onMaterialChange(event, 'Glass')} />
+              onChangeHandler={(event) => onMaterialChange(event, 'Glass')} /> */}
             <h2>Search Recipes</h2>
             <SearchBox
               className='recipe-search-box'
