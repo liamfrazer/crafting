@@ -1,47 +1,166 @@
 [
     {
       "id": 1,
-      "name": "Assualt Rifle Clip",
-      "maingroup": "Attachment",
-      "subgroup": "Assault Rifle Attachment",
+      "name": "Clip",
+      "group": "Rifle Attachment",
       "weight": 0,
       "image": "",
       "requirements": {
         "Aluminium": 250,
         "Metal Scrap": 250,
+        "Steel": 250,
         "Plastic": 65,
-        "Rubber": 65,
-        "Steel": 250
+        "Rubber": 65
       }
     },
     {
       "id": 2,
-      "name": "Assualt Rifle EXT Clip",
-      "maingroup": "Attachment",
-      "subgroup": "Assualt Rifle Attachment",
+      "name": "Supressor",
+      "group": "Attachment",
       "weight": 0,
       "image": "",
       "requirements": {
-        "Aluminium": 250,
-        "Metal Scrap": 250,
-        "Plastic": 65,
-        "Rubber": 65,
-        "Steel": 250
+        "Plastic": 135,
+        "Rubber": 135
       }
     },
     {
       "id": 3,
-      "name": "MK18 Supressor",
-      "maingroup": "Attachment",
-      "subgroup": "MK18 Attachment",
+      "name": "Mag",
+      "group": "Attachment",
       "weight": 0,
       "image": "",
       "requirements": {
         "Aluminium": 250,
         "Metal Scrap": 250,
+        "Steel": 250,
         "Plastic": 65,
-        "Rubber": 65,
-        "Steel": 250
+        "Rubber": 65
+      }
+    },
+    {
+      "id": 4,
+      "name": "Scope",
+      "group": "Attachment",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Aluminium": 250,
+        "Metal Scrap": 250,
+        "Steel": 250,
+        "Plastic": 65,
+        "Rubber": 65
+      }
+    },
+    {
+      "id": 5,
+      "name": "Light",
+      "group": "Attachment",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Plastic": 135,
+        "Rubber": 135
+      }
+    },
+    {
+      "id": 6,
+      "name": "Slide",
+      "group": "Attachment",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Aluminium": 250,
+        "Metal Scrap": 250,
+        "Steel": 250,
+        "Plastic": 65,
+        "Rubber": 65
+      }
+    },
+    {
+      "id": 7,
+      "name": "Stock",
+      "group": "Attachment",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Aluminium": 250,
+        "Metal Scrap": 250,
+        "Steel": 250,
+        "Plastic": 65,
+        "Rubber": 65
+      }
+    },
+    {
+      "id": 8,
+      "name": "Drum",
+      "group": "Attachment",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Aluminium": 250,
+        "Metal Scrap": 250,
+        "Steel": 250,
+        "Plastic": 65,
+        "Rubber": 65
+      }
+    },
+    {
+      "id": 9,
+      "name": "Frame",
+      "group": "Attachment",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Aluminium": 250,
+        "Metal Scrap": 250,
+        "Steel": 250,
+        "Plastic": 65,
+        "Rubber": 65
+      }
+    },
+    {
+      "id": 10,
+      "name": "Double-Barrel Shotgun",
+      "group": "Shotgun",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Aluminium": 250,
+        "Metal Scrap": 250,
+        "Steel": 250,
+        "Plastic": 65,
+        "Rubber": 65
+      }
+    },
+    {
+      "id": 11,
+      "name": "Glock 17",
+      "group": "Pistol",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Metal Scrap": 95,
+        "Plastic": 95,
+        "Rubber": 95,
+        "G17 Barrel": 1,
+        "G17 Frame": 1,
+        "G17 Slide": 1
+      }
+    },
+    {
+      "id": 12,
+      "name": "FNX 45",
+      "group": "Pistol",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Rubber": 250,
+        "Metal Scrap": 120,
+        "Steel": 120,
+        "G17 Barrel": 1,
+        "G17 Frame": 1,
+        "G17 Slide": 1
       }
     }
   ]

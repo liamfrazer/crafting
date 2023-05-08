@@ -2,7 +2,8 @@ import { Component } from 'react'
 import InputBox from './components/input-box/input-box.component';
 import RecipeList from './components/recipe-list/recipe-list.component';
 import SearchBox from './components/search-box/search-box.component';
-
+import ShoppingList from './shopping-list/shopping-list.component';
+import BtnOption from './components/btn/btn-option.component';
 import './App.css';
 
 class App extends Component {
@@ -12,6 +13,7 @@ class App extends Component {
     this.state = {
       materials: [],
       recipes: [],
+      basket: [],
       inputField: '',
       searchField: ''
     }
@@ -49,49 +51,65 @@ class App extends Component {
     this.setState({ materials: updatedMaterials })
   }
 
+  onBasketChange = (event, materialName) => {
+    const inputField = event.target.value
+    const updatedMaterials = this.state.materials.map(material => {
+      if (material.name === materialName && !isNaN(inputField)) {
+        return { ...material, amount: parseInt(inputField, 10) }
+      } else {
+        return material;
+      }
+    })
+    this.setState({ materials: updatedMaterials })
+  }
+
 
   render() {
 
-    const { recipes, searchField, inputField } = this.state
-    const { onSearchChange } = this;
-    const { onMaterialChange } = this;
+    const { recipes, searchField } = this.state
+    const { onSearchChange, onMaterialChange, onBasketChange } = this;
 
     const searchRecipes = recipes.filter((recipe) => {
       return recipe.name.toLowerCase().includes(searchField)
     })
-
-    // const materialsAmount = recipes.filter((recipe) => {
-    //   return recipe.name.toLowerCase().includes(searchField)
-    // })
-
-    console.log(...this.state.materials);
 
     return (
       <div className="App">
         <div>
           <header className="App-header">
             <h1>Crafting Recipes</h1>
+            <h2>Shopping List</h2>
+            <ShoppingList />
+            <BtnOption
+              className='basket-clear-btn'
+              value='Clear Basket'
+              onClickHandler={() => console.log('Basket Cleared')}
+            />
             <h2>Materials</h2>
             <InputBox
               className='Aluminium-input-box'
-              placeholder={'Aluminium Amount'}
+              placeholder={'Aluminium'}
               onChangeHandler={(event) => onMaterialChange(event, 'Aluminium')} />
             <InputBox
               className='MetalScrap-input-box'
-              placeholder='Metal Scrap Amount'
+              placeholder='Metal Scrap'
               onChangeHandler={(event) => onMaterialChange(event, 'Metal Scrap')} />
             <InputBox
               className='Plastic-input-box'
-              placeholder='Plastic Amount'
+              placeholder='Plastic'
               onChangeHandler={(event) => onMaterialChange(event, 'Plastic')} />
             <InputBox
               className='Rubber-input-box'
-              placeholder='Rubber Amount'
+              placeholder='Rubber'
               onChangeHandler={(event) => onMaterialChange(event, 'Rubber')} />
             <InputBox
               className='Steel-input-box'
-              placeholder='Steel Amount'
+              placeholder='Steel'
               onChangeHandler={(event) => onMaterialChange(event, 'Steel')} />
+            <InputBox
+              className='Glass-input-box'
+              placeholder='Glass'
+              onChangeHandler={(event) => onMaterialChange(event, 'Glass')} />
             <h2>Search Recipes</h2>
             <SearchBox
               className='recipe-search-box'

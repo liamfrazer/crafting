@@ -1,4 +1,5 @@
 import  { Component } from 'react';
+import BtnOption from '../btn/btn-option.component';
 
 class RecipeList extends Component {
 
@@ -21,6 +22,11 @@ class RecipeList extends Component {
                             </li>
                         ))}
                     </ul>
+                    <BtnOption
+              className='basket-add-btn'
+              value='Add to Basket'
+              onClickHandler={() => console.log(`${recipe.name} added to basket`)}
+            />
                     </div>
                 ))}
             </div>
