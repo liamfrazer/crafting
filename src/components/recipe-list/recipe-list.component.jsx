@@ -25,7 +25,7 @@ class RecipeList extends Component {
                     <BtnOption
               className='basket-add-btn'
               value='Add to Basket'
-              onClickHandler={() => console.log(`${recipe.name} added to basket`)}
+              onClickHandler={() => this.props.addToBasket(recipe)}
             />
                     </div>
                 ))}

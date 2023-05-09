@@ -3,6 +3,7 @@ import RecipeList from './components/recipe-list/recipe-list.component';
 import SearchBox from './components/search-box/search-box.component';
 import ShoppingList from './shopping-list/shopping-list.component';
 import BtnOption from './components/btn/btn-option.component';
+import { v4 as uuidv4 } from 'uuid'
 import './App.css';
 
 // import InputBox from './components/input-box/input-box.component';
@@ -12,11 +13,12 @@ class App extends Component {
     super();
 
     this.state = {
-      materials: [],
       recipes: [],
       basket: [],
-      inputField: '',
       searchField: ''
+      // materials: [],
+      // inputField: '',
+
     }
   }
 
@@ -45,6 +47,13 @@ class App extends Component {
     })
   }
 
+  addToBasket = (recipe) => {
+    const newRecipeID = { ...recipe, id: uuidv4() }
+    this.setState(prevState => ({
+      basket: [...prevState.basket, newRecipeID]
+    }), () => console.log(this.state.basket))
+  }
+
   // Original idea to input materials, then calculate what recipes can be created
   // Will keep for future changes, as calculation still may be required
 
@@ -60,27 +69,21 @@ class App extends Component {
   //   this.setState({ materials: updatedMaterials })
   // }
 
-  // Duplicate of onMaterialChange, but will detect buttons being selected in recipes
-  // This will then add the items to the shopping list
-  // Once added to the shopping list, the required material amount will be displayed
-
-  onBasketChange = (event, materialName) => {
-    const inputField = event.target.value
-    const updatedMaterials = this.state.materials.map(material => {
-      if (material.name === materialName && !isNaN(inputField)) {
-        return { ...material, amount: parseInt(inputField, 10) }
-      } else {
-        return material;
-      }
+  clearBasket = () => {
+    // const basketCleared = this.setState.basket = []
+    // console.log(`Basket Cleared`)
+    // return basketCleared
+    const emptyBasket = []
+    this.setState(() => {
+      return { basket: emptyBasket }
     })
-    this.setState({ materials: updatedMaterials })
   }
 
 
   render() {
 
     const { recipes, searchField } = this.state
-    const { onSearchChange } = this;
+    const { onSearchChange, clearBasket } = this;
     // onMaterialChange
     // onBasketChange
 
@@ -93,12 +96,12 @@ class App extends Component {
         <div>
           <header className="App-header">
             <h1>Crafting Recipes</h1>
-            <h2>Shopping List</h2>
-            <ShoppingList />
+            <ShoppingList
+              basket={this.state.basket} />
             <BtnOption
               className='basket-clear-btn'
               value='Clear Basket'
-              onClickHandler={() => console.log('Basket Cleared')}
+              onClickHandler={clearBasket}
             />
             {/*<h2>Materials</h2>
              <InputBox
@@ -133,6 +136,7 @@ class App extends Component {
             />
             <RecipeList
               recipes={searchRecipes}
+              addToBasket={this.addToBasket}
             />
           </header>
         </div>
