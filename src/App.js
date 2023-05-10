@@ -25,7 +25,6 @@ class App extends Component {
   componentDidMount() {
     fetch(`${process.env.PUBLIC_URL}/data/recipes.json`)
       .then(response => response.json())
-      // .then(recipes => this.setState({ recipes }))
       .then((name, requirements) => this.setState(() => {
         return { recipes: name, requirements }
       }))
@@ -86,8 +85,6 @@ class App extends Component {
               onClickHandler={clearBasket}
             />
             <MaterialsList
-              // basket={this.state.basket}
-              // materials={this.state.materials}
               onBasketChange={materialsRequired} />
             <SearchBox
               className='recipe-search-box'
