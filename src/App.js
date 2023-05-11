@@ -1,8 +1,7 @@
 import { Component } from 'react'
 import RecipeList from './components/recipe-list/recipe-list.component';
 import SearchBox from './components/search-box/search-box.component';
-import ShoppingList from './shopping-list/shopping-list.component';
-import BtnOption from './components/btn/btn-option.component';
+import ShoppingList from './components/shopping-list/shopping-list.component';
 import MaterialsList from './components/materials-list/materials-list.component';
 import { v4 as uuidv4 } from 'uuid'
 import './App.css';
@@ -45,56 +44,54 @@ class App extends Component {
     })
   }
 
+  // addToBasket calculates the shopping list, how many of each item there is, then calculates the materials required for each
+
   addToBasket = (recipe) => {
     const newRecipeID = { ...recipe, id: uuidv4() }
+    const newMaterials = { ...this.state.materials }
+    Object.keys(recipe.requirements).forEach((material) => {
+      newMaterials[material] = (newMaterials[material] || 0) + recipe.requirements[material]
+    })
     this.setState(prevState => ({
-      basket: [...prevState.basket, newRecipeID]
-    }), () => console.log(this.state.basket))
+      basket: [...prevState.basket, newRecipeID],
+      materials: newMaterials
+    }), console.log(newMaterials))
   }
+
+  // clearBasket sets the state of both the basket and the materials back to default
 
   clearBasket = () => {
-    const emptyBasket = []
     this.setState(() => {
-      return { basket: emptyBasket }
+      return { basket: [], materials: [] }
     })
-  }
-
-  materialsRequired = () => {
-
   }
 
   render() {
 
     const { recipes, searchField } = this.state
-    const { onSearchChange, clearBasket, addToBasket, materialsRequired } = this;
+    const { onSearchChange, addToBasket, clearBasket } = this;
 
     const searchRecipes = recipes.filter((recipe) => {
       return recipe.name.toLowerCase().includes(searchField)
     })
 
     return (
-      <div className="App">
+      <div className="App" >
         <div>
           <header className="App-header">
             <h1>Crafting Recipes</h1>
             <ShoppingList
-              basket={this.state.basket} />
-            <BtnOption
-              className='basket-clear-btn'
-              value='Clear Basket'
-              onClickHandler={clearBasket}
-            />
+              basket={this.state.basket}
+              clearBasket={clearBasket} />
             <MaterialsList
-              onBasketChange={materialsRequired} />
+              materials={this.state.materials} />
             <SearchBox
               className='recipe-search-box'
               placeholder='Search...'
-              onChangeHandler={onSearchChange}
-            />
+              onChangeHandler={onSearchChange} />
             <RecipeList
               recipes={searchRecipes}
-              addToBasket={addToBasket}
-            />
+              addToBasket={addToBasket} />
           </header>
         </div>
       </div>
@@ -103,51 +100,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-  // Original idea to input materials, then calculate what recipes can be created
-  // Will keep for future changes, as calculation still may be required
-
-  // import InputBox from './components/input-box/input-box.component';
-
-        // materials: [],
-      // inputField: '',
-
-  // onMaterialChange = (event, materialName) => {
-  //   const inputField = event.target.value
-  //   const updatedMaterials = this.state.materials.map(material => {
-  //     if (material.name === materialName && !isNaN(inputField)) {
-  //       return { ...material, amount: parseInt(inputField, 10) }
-  //     } else {
-  //       return material;
-  //     }
-  //   })
-  //   this.setState({ materials: updatedMaterials })
-  // }
-
-/*  <h2>Materials</h2>
-   <InputBox
-    className='Aluminium-input-box'
-    placeholder={'Aluminium'}
-    onChangeHandler={(event) => onMaterialChange(event, 'Aluminium')} />
-  <InputBox
-    className='MetalScrap-input-box'
-    placeholder='Metal Scrap'
-    onChangeHandler={(event) => onMaterialChange(event, 'Metal Scrap')} />
-  <InputBox
-    className='Plastic-input-box'
-    placeholder='Plastic'
-    onChangeHandler={(event) => onMaterialChange(event, 'Plastic')} />
-  <InputBox
-    className='Rubber-input-box'
-    placeholder='Rubber'
-    onChangeHandler={(event) => onMaterialChange(event, 'Rubber')} />
-  <InputBox
-    className='Steel-input-box'
-    placeholder='Steel'
-    onChangeHandler={(event) => onMaterialChange(event, 'Steel')} />
-  <InputBox
-    className='Glass-input-box'
-    placeholder='Glass'
-    onChangeHandler={(event) => onMaterialChange(event, 'Glass')} /> 
-*/

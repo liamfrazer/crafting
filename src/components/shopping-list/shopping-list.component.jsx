@@ -1,13 +1,18 @@
 import  { Component } from 'react';
+import BtnOption from '../btn/btn-option.component';
 
 class ShoppingList extends Component {
 
-    
     render() {
-        const { basket} = this.props
+        const { basket, clearBasket } = this.props
 
-    if (!basket) {
-        return <div>Empty Basket</div>
+    if (basket.length === 0) {
+        return (
+        <div>
+            <h4>Shopping List</h4>
+            <p>Empty Basket</p>
+            </div>
+        )
     }
 
     const itemCount = new Map()
@@ -39,6 +44,11 @@ class ShoppingList extends Component {
                         <li key={item.id}>{item.name} x {itemCount.get(item.name)}</li>
                     ))}
                 </ul>
+                <BtnOption
+              className='basket-clear-btn'
+              value='Clear Basket'
+              onClickHandler={clearBasket}
+            />
             </div>
         )
     }
