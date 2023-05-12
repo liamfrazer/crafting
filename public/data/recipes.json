@@ -162,5 +162,134 @@
         "G17 Frame": 1,
         "G17 Slide": 1
       }
+    },
+    {
+      "id": 13,
+      "name": "Advanced Lockpick",
+      "group": "Item",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Steel": 3,
+        "Lockpick": 1
+      }
+    },
+    {
+      "id": 14,
+      "name": "Bandage",
+      "group": "Item",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Roll of Paper": 10,
+        "Plastic": 10,
+        "Rubber": 10
+      }
+    },
+    {
+      "id": 15,
+      "name": "Crypto Stick",
+      "group": "Item",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Plastic": 10,
+        "Rubber": 10,
+        "Electronic Kit": 1
+      }
+    },
+    {
+      "id": 16,
+      "name": "Iron Powder x10",
+      "group": "Item",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Iron": 25,
+        "Metal Scrap": 15
+      }
+    },
+    {
+      "id": 17,
+      "name": "Aluminium Powder x10",
+      "group": "Item",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Aluminium": 25,
+        "Metal Scrap": 15
+      }
+    },
+    {
+      "id": 17,
+      "name": "Drill",
+      "group": "Item",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Plastic": 25,
+        "Metal Scrap": 15,
+        "Toolkit": 10
+      }
+    },
+    {
+      "id": 18,
+      "name": "Bag",
+      "group": "Item",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Aluminium": 25,
+        "Metal Scrap": 15
+      }
+    },
+    {
+      "id": 19,
+      "name": "Molotov",
+      "group": "Weapon",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Empty Bottle": 25,
+        "Jerrycan 20L": 25,
+        "Thermite": 5,
+        "Lighter": 1
+      }
+    },
+    {
+      "id": 20,
+      "name": "Handcuffs",
+      "group": "Item",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Iron": 10,
+        "Metal Scrap": 10,
+        "Steel": 10
+      }
+    },
+    {
+      "id": 21,
+      "name": "Armor x10",
+      "group": "Item",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Aluminium": 40,
+        "Iron": 40,
+        "Plastic": 40,
+        "Steel": 40
+      }
+    },
+    {
+      "id": 22,
+      "name": "Pistol Flashlight",
+      "group": "Item",
+      "weight": 0,
+      "image": "",
+      "requirements": {
+        "Plastic": 135,
+        "Rubber": 135
+      }
     }
   ]
