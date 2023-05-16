@@ -200,7 +200,7 @@
     },
     {
       "id": 16,
-      "name": "Iron Powder x10",
+      "name": "Iron Powder x 10",
       "group": "Item",
       "weight": 0,
       "image": "",
@@ -211,7 +211,7 @@
     },
     {
       "id": 17,
-      "name": "Aluminium Powder x10",
+      "name": "Aluminium Powder x 10",
       "group": "Item",
       "weight": 0,
       "image": "",
@@ -221,7 +221,7 @@
       }
     },
     {
-      "id": 17,
+      "id": 18,
       "name": "Drill",
       "group": "Item",
       "weight": 0,
@@ -233,7 +233,7 @@
       }
     },
     {
-      "id": 18,
+      "id": 19,
       "name": "Bag",
       "group": "Item",
       "weight": 0,
@@ -244,7 +244,7 @@
       }
     },
     {
-      "id": 19,
+      "id": 20,
       "name": "Molotov",
       "group": "Weapon",
       "weight": 0,
@@ -257,7 +257,7 @@
       }
     },
     {
-      "id": 20,
+      "id": 21,
       "name": "Handcuffs",
       "group": "Item",
       "weight": 0,
@@ -269,7 +269,7 @@
       }
     },
     {
-      "id": 21,
+      "id": 22,
       "name": "Armor x10",
       "group": "Item",
       "weight": 0,
@@ -282,7 +282,7 @@
       }
     },
     {
-      "id": 22,
+      "id": 23,
       "name": "Pistol Flashlight",
       "group": "Item",
       "weight": 0,
